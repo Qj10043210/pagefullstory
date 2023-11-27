@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Div Touch Detection</title>
+  <style>
+    #floor {
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
+      position: relative;
+      margin-top: 150px;
+    }
+
+    #smallDiv {
+      width: 50px;
+      height: 50px;
+      background-color: lightblue;
+      position: absolute;
+      top: 328.10301px;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="floor">
+  <div id="smallDiv"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  var floor = document.getElementById('floor');
+  var smallDiv = document.getElementById('smallDiv');
+
+  // Function to check if the small div touches the floor
+  function isTouching() {
+    var rect1 = floor.getBoundingClientRect();
+    var rect2 = smallDiv.getBoundingClientRect();
+    console.log(rect1.bottom)
+    console.log(rect2.top)
+    console.log("d")
+    console.log(rect1.top)
+    console.log(rect2.bottom)
+    console.log("d")
+    console.log(rect1.right)
+    console.log(rect2.left)
+    console.log("d")
+    console.log(rect1.left)
+    console.log(rect2.right)
+    console.log("d")
+    // Check for intersection
+    if (
+      rect1.top <= rect2.bottom &&
+      rect1.bottom > rect2.top &&
+      rect1.left < rect2.right &&
+      rect1.right > rect2.left
+    ) {
+      console.log('Small div is touching the floor.');
+      var offset = rect1.top - rect2.bottom;
+      smallDiv.style.top = parseFloat(getComputedStyle(smallDiv).top) + offset + 'px';
+    } else {
+      console.log('Small div is not touching the floor.');
+    }
+  }
+
+  // Example: Call the isTouching function on click
+  smallDiv.addEventListener('click', isTouching);
+</script>
+
+</body>
+</html>
