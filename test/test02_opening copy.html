@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+#backdiv {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 3000px;
+    height: 2000px;
+    background-color: red;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+#divs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1024px;
+    height: 768px;
+    background-image: url('./css/maple_full.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: 0% 95%;
+    overflow: hidden;
+    transition: background-position 0.5s ease;
+    z-index: 2;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: -1px -1px 0px 4px black, 1px -1px 0px 4px black, -1px 1px 0px 4px black, 1px 1px 0px 4px black;
+}
+
+#divs_title {
+    width: 100%;
+    height: 3%;
+    position: absolute;
+    top: -3.5%;
+    left: 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: -1px -1px 0px 4px black, 1px -1px 0px 4px black;
+}
+
+.divs_title_inside {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+}
+
+.divs_title_left {
+    height: 90%;
+    width: 40%;
+    background-image: url('./css/maple_address.png');
+}
+
+.divs_title_right {
+    height: 90%;
+    aspect-ratio: 1/1;
+    background-image: url('./css/1.png');
+    background-color: transparent;
+}
+
+.divs_title_right:hover {
+    background-image: url('./css/maple_address_x.gif');
+    cursor: none;
+}
+
+#loginbox {
+    position: absolute;
+    z-index: 10;
+    width: 50%;
+    aspect-ratio: 1087/747;
+    background-image: url('./css/default.png');
+    background-size: 100% 100%;
+    background-position: 0% 0%;
+    bottom: 14%;
+    right: 3%;
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="backdiv">
+        <div id="divs_title">
+            <div class="divs_title_inside divs_title_left"></div>
+            <div class="divs_title_inside divs_title_right"></div>
+        </div>
+    </div>
+    
+    <div id="divs">
+        <div id="loginbox"></div>
+    </div>
+    <p id="scroll-button-id"></p>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        let number = -1;
+
+        window.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
+        window.addEventListener('mousedown', (e) => {
+            if (e.button === 1) {
+                e.preventDefault();
+            }
+        });
+
+        const scrollButton = document.getElementById('scroll-button-id');
+        
+
+        scrollButton.addEventListener('click', () => {
+            number += 1;
+
+            if (number == 0) {
+                backgroundDiv.style.backgroundPosition = '0% 60%';
+            } else if (number == 1) {
+                backgroundDiv.style.backgroundPosition = '0% 0%';
+            } else if (number == 2) {
+                backgroundDiv.style.backgroundPosition = '0% 28%';
+
+            } else if (number == 3) {
+
+                backgroundDiv.style.backgroundPosition = '0% 95%';
+                number = -1;
+            }
+
+
+            window.scrollTo({
+                top: number > 0 ? 0 : document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        });
+        let reveal = 0; // Added a variable to track the number of reveals
+
+window.addEventListener('wheel', (e) => e.preventDefault(), { passive: false });
+window.addEventListener('mousedown', (e) => {
+    if (e.button === 1) {
+        e.preventDefault();
+    }
+});
+
+const backgroundDiv = document.getElementById('divs');
+
+document.getElementById('scroll-button-id').addEventListener('click', () => {
+    reveal += 1;
+
+    if (reveal === 1) {
+        backgroundDiv.style.backgroundPosition = '0% 60%';
+    } else if (reveal === 2) {
+        backgroundDiv.style.backgroundPosition = '0% 0%';
+    } else if (reveal === 3) {
+        backgroundDiv.style.backgroundPosition = '0% 28%';
+    } else if (reveal === 4) {
+        backgroundDiv.style.backgroundPosition = '0% 95%';
+        reveal = 0;
+    }
+
+    window.scrollTo({
+        top: reveal > 0 ? 0 : document.body.scrollHeight,
+        behavior: 'smooth',
+    });
+});
+
+    </script>
+    <!-- <script>
+        let number = -1;
+        window.addEventListener("wheel", e => e.preventDefault(), { passive:false })
+        window.addEventListener('mousedown', e => {    if (e.button === 1) {        e.preventDefault();    } });
+
+        const scrollButton = document.getElementById('scroll-button-id');
+
+scrollButton.addEventListener('click', () => {
+    if(number>0){
+        window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // You can use 'auto' or 'instant' instead of 'smooth' for different scrolling behaviors
+    
+    });
+    number *= -1    
+    }else{
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth' // You can use 'auto' or 'instant' instead of 'smooth' for different scrolling behaviors
+    });
+    number *= -1
+}
+});
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,600 @@
+
+<style>
+    #mapFull{
+    width: 1920px;
+    height:2020px;
+    position: absolute;
+    background-image: url('./css/back_tuto.png');
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    z-index: 10;
+}
+#mapFull div{
+    position: absolute;
+}
+#mapFull div div{
+    position: absolute;
+    background-size: contain;
+}
+.big_wall{
+    background-image: url('./css/map/g00.png');
+    background-repeat: repeat;
+}
+.big_wall > .big_top{
+    top:-20px;
+}
+
+.big_top{
+    background-image: url('./css/map/g21.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 20px;
+    
+}
+
+.wall_left{
+    background-image: url('./css/map/g31.png');
+    background-repeat: repeat-y;
+}
+.big_bottom{
+    background-image: url('./css/map/g22.png');
+    background-repeat: repeat-x;
+}
+.ladder_top{
+    background-image: url('./css/map/r03.png');
+    background-repeat: no-repeat;
+}
+.ladder_bottom{
+    background-image: url('./css/map/r01.png');
+    background-repeat: repeat-y;
+}
+.ladder_middle{
+    background-image: url('./css/map/r02.png');
+    background-repeat: repeat-y;
+}
+#wall_1{
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 280px;
+}
+#wall_1>.big_top{
+    width: 660px;
+    left:0
+}
+#wall_2>.wall_left{
+    height: 100%;
+    width: 20px;
+    top:0px;
+    left:0px
+}
+#wall_2{
+    bottom: 280px;
+    right: 0;
+    width: 1260px;
+    height: 80px;
+}
+#wall_2>.big_top{
+    
+    width: 100px;
+    
+    left:0
+}
+#wall_3{
+    bottom: 360px;
+    right: 0;
+    width: 1160px;
+    height: 80px;
+}
+#wall_3>.big_top{
+   
+    width: 100%;
+    
+    left:0
+}
+#wall_3>.wall_left{
+    height: 100%;
+    width: 20px;
+    top:0px;
+    left:0px
+}
+.flyBlock_all{
+    width:180px;
+    height: 60px;
+}
+.flyBlock_all > .big_top{
+    width: 100%;
+    
+    left: 0;
+    top: 0px;
+}
+.flyBlock_all > .big_bottom{
+    width: 100%;
+    height: 40px;
+    left: 0;
+    top: 20px;
+    
+}
+.ladder_all > .ladder_top{
+    width:100%;
+    height: 20px;
+    top:-20px;
+    left:0px;
+    background-repeat: no-repeat;
+}
+.ladder_all > .ladder_middle{
+    width:100%;
+    height: 100%;
+    top:0px;
+    left:0px;
+}
+#flyingBlock_1{
+    bottom:520px;
+    left:80px;    
+}
+#flyingBlock_2{
+    bottom:600px;
+    left:200px;    
+}
+#flyingBlock_3{
+    bottom:680px;
+    left:320px;    
+}
+#flyingBlock_4{
+    bottom:600px;
+    right:80px;    
+}
+#flyingBlock_5{
+    bottom:680px;
+    right:200px;    
+}
+#flyingBlock_6{
+    bottom:760px;
+    right:80px;    
+}
+#flyingBlock_7{
+    bottom:840px;
+    right:200px;    
+}
+#flyingBlock_8{
+    bottom:920px;
+    right:80px;    
+}
+#wall_4{
+    bottom:920px;
+    left:420px;
+    width: 1080px;
+    height: 140px;
+}
+#wall_4 > .big_top{
+    
+    right:0px;
+    width: 360px;
+    
+}
+#wall_5{
+    bottom:1060px;
+    left:420px;
+    width: 720px;
+    height: 80px;
+}
+#wall_5 > .big_top{
+    
+    left:0px;
+    width: 100%;
+    
+}
+#wall_6{
+    bottom:1280px;
+    right:0px;
+    width: 180px;
+    height: 160px;
+}
+#wall_6 > .big_top{
+    
+    left:0px;
+    width: 100%;
+    
+}
+#wall_7{
+    bottom:1280px;
+    right:180px;
+    width: 180px;
+    height: 160px;
+    
+}
+#wall_7 > .big_slide{
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('./css/map/g50.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#wall_7 > .big_top{
+    top:-20px;
+    left:0px;
+    width: 100%;
+    height: 20px;
+}
+#ladder_1{
+    bottom:310px;
+    left:130px;
+    width: 80px;
+    height: 260px; 
+}
+#ladder_2{
+    bottom:750px;
+    left:470px;
+    width: 80px;
+    height: 400px; 
+}
+
+#ladder_3{
+    bottom:470px;
+    right:130px;
+    width: 80px;
+    height: 180px; 
+}
+#ladder_4{
+    bottom:1010px;
+    right:130px;
+    width: 80px;
+    height: 440px; 
+}
+.obj_sign{
+    aspect-ratio: 65/116;
+    background-image: url('./css/map/q00.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+    
+}
+.obj_gate{
+    aspect-ratio: 257/227;
+    background-image: url('./css/map/q36.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.obj_chair{
+    aspect-ratio: 132/58;
+    background-image: url('./css/map/q05.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_bigtree{
+    aspect-ratio: 290/239;
+    background-image: url('./css/map/w15.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_bush00{
+    aspect-ratio: 131/39;
+    background-image: url('./css/map/w00.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 30%;
+    
+    
+}
+.nat_bush01{
+    aspect-ratio: 223/128;
+    background-image: url('./css/map/w13.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+    
+    
+}
+.nat_bush02{
+    aspect-ratio: 54/38;
+    background-image: url('./css/map/w01.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_bush03{
+    aspect-ratio: 83/59;
+    background-image: url('./css/map/w10.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_fly00{
+    aspect-ratio: 33/16;
+    background-image: url('./css/map/w19.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_fly01{
+    aspect-ratio: 38/16;
+    background-image: url('./css/map/w20.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_fly02{
+    aspect-ratio: 33/18;
+    background-image: url('./css/map/w21.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_flower00{
+    aspect-ratio: 47/66;
+    background-image: url('./css/map/w05.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+.nat_flower01{
+    aspect-ratio: 56/52;
+    background-image: url('./css/map/w06.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+
+
+
+.portal{
+    aspect-ratio: 87/182;
+    background-image: url('./css/map/p00.png');
+    background-position: top left;
+    bottom: 0px;
+    left:0px;
+    width: 100%;
+}
+
+#natural_8{
+    bottom:295px;
+    left:360px;
+    width: 100px;
+}
+
+#object_1{
+    bottom:295px;
+    left:400px;
+    width:80px;
+    height: 180px;
+}
+#object_2{
+    bottom:455px;
+    right:360px;
+    width:70px;
+    height: 180px;
+}
+#object_3{
+    bottom:455px;
+    right:460px;
+    width: 300px;
+    
+}
+#natural_1{
+    bottom:445px;
+    right:560px;
+    width: 400px;
+    
+}
+#natural_2{
+    bottom:445px;
+    right:560px;
+    width: 450px;
+}
+#natural_3{
+    bottom:445px;
+    right:480px;
+    width: 450px;
+}
+#natural_4{
+    bottom:445px;
+    right:400px;
+    width: 450px;
+}
+#natural_5{
+    bottom:445px;
+    right:320px;
+    width: 450px;
+}
+#natural_6{
+    bottom:1155px;
+    left:740px;
+    width: 200px;
+}
+#natural_7{
+    bottom:1155px;
+    left:900px;
+    width: 100px;
+}
+#natural_9{
+    bottom:1205px;
+    left:720px;
+    width: 40px;
+}
+#object_4{
+    bottom:1155px;
+    left:820px;
+    width: 132px;
+}
+#natural_10{
+    bottom:1455px;
+    right:240px;
+    width:60px
+}
+#natural_11{
+    bottom:1455px;
+    right:210px;
+    width:60px
+}
+#natural_12{
+    bottom:1515px;
+    right:210px;
+    width:40px
+}
+
+#portal_00{
+    bottom:1445px;
+    right:40px;
+    width:100px
+}
+#test{
+    position: absolute;
+    bottom:350px;
+    left:300px;
+    width: 80px;
+    aspect-ratio: 37/26;
+    background-image: url('./css/mob/0100.png');
+    background-size: 100% 100%;
+}
+</style>
+<body>
+    <div id="mapFull" class="map01">
+        <div id="wall_1" class="big_wall">
+            <div class="big_top"></div>
+        </div>
+        <div id="wall_2" class="big_wall">
+            <div class="wall_left"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="wall_3" class="big_wall">
+            <div class="wall_left"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="flyingBlock_1" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="ladder_1" class="ladder_all">
+            <div class="ladder_top"></div>
+            <div class="ladder_middle"></div>
+
+        </div>
+        <div id="flyingBlock_2" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="flyingBlock_3" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="wall_4" class="big_wall">
+            <div class="big_top"></div>
+        </div>
+        <div id="wall_5" class="big_wall">
+            <div class="big_top"></div>
+        </div>
+
+        <div id="ladder_2" class="ladder_all">
+            <div class="ladder_top"></div>
+            <div class="ladder_middle"></div>
+
+        </div>
+        <div id="flyingBlock_4" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="ladder_3" class="ladder_all">
+            <div class="ladder_top"></div>
+            <div class="ladder_middle"></div>
+
+        </div>
+        <div id="flyingBlock_5" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="flyingBlock_6" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="flyingBlock_7" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="flyingBlock_8" class="flyBlock_all">
+            <div class="big_bottom"></div>
+            <div class="big_top"></div>
+        </div>
+
+        <div id="wall_6" class="big_wall">
+            <div class="big_top"></div>
+        </div>
+        <div id="wall_7">
+            <div class="big_slide"></div>
+            <div class="big_top"></div>
+        </div>
+        <div id="ladder_4" class="ladder_all">
+            <div class="ladder_top"></div>
+            <div class="ladder_middle"></div>
+
+        </div>
+        <div id="natural_8">
+            <div class="nat_bush03"></div>
+        </div>
+        <div id="object_1">
+            <div class="obj_sign"></div>
+        </div>
+        <div id="object_2">
+            <div class="obj_sign"></div>
+        </div>
+        <div id="natural_1">
+            <div class="nat_bigtree"></div>
+        </div>
+        <div id="object_3">
+            <div class="obj_gate"></div>
+        </div>
+        <div id="natural_2">
+            <div class="nat_bush00"></div>
+        </div>
+        <div id="natural_3">
+            <div class="nat_bush00"></div>
+        </div>
+        <div id="natural_4">
+            <div class="nat_bush00"></div>
+        </div>
+        <div id="natural_5">
+            <div class="nat_bush00"></div>
+        </div>
+        <div id="natural_6">
+            <div class="nat_bush01"></div>
+        </div>
+        <div id="natural_7">
+            <div class="nat_bush02"></div>
+        </div>
+        <div id="object_4">
+            <div class="obj_chair"></div>
+        </div>
+        <div id="natural_9">
+            <div class="nat_fly00"></div>
+        </div>
+        <div id="natural_10">
+            <div class="nat_flower00"></div>
+        </div>
+        <div id="natural_11">
+            <div class="nat_flower01"></div>
+        </div>
+        <div id="natural_12">
+            <div class="nat_fly02"></div>
+        </div>
+        <div id="portal_00">
+            <div class="portal"></div>
+        </div>
+        <div id="test"></div>
+    </div>

@@ -1,0 +1,90 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    
+}
+body::-webkit-scrollbar {
+    display: none;
+    
+  
+}
+#allBody{
+    position: relative;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 4;
+}
+#screen {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 1024px;
+    aspect-ratio: 1024/768;
+    overflow: hidden;
+    border: 5px solid red;
+    background-repeat: no-repeat;
+    background-color: antiquewhite;
+}
+#charc{
+    position: absolute;
+    z-index: 6;
+    bottom: 3%;
+    left: 10%;
+    border: 1px solid black;
+    width: 40px;
+    height: 70px;
+
+}
+#charc2{
+    position: absolute;
+    z-index: 6;
+    bottom: 3%;
+    left: 50%;
+    
+
+}
+.Bd{
+    position: absolute;
+    z-index: 6;
+    bottom: 0px;
+    left: 0px;
+    width: 21px;
+    height: 31px;
+    background-image: url('./css/body.png');
+}
+.head{
+    position: absolute;
+    z-index: 6;
+    bottom: 30px;
+    left: -4px;
+    width: 39px;
+    height: 35px;
+    background-image: url('./css/maple_body_light/light-023.png');
+}
+.hand{
+    position: absolute;
+    z-index: 6;
+    bottom: 10px;
+    left: 16px;
+    width: 10px;
+    height:19px;
+    background-image: url('./css/arm.png');
+}
+
+#charc2>.Bd{
+    transform: scaleX(-1);
+}
+#charc2>.head{
+    transform: scaleX(-1);
+    left: 0px;
+    right: -4px;
+}
+#charc2>.hand{
+    transform: scaleX(-1);
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravity and Jump Simulation</title>
+  <style>
+    #floor {
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
+      position: relative;
+      margin-top: 150px;
+    }
+
+    #fallingDiv {
+      width: 50px;
+      height: 50px;
+      background-color: lightblue;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="floor">
+  <div id="fallingDiv"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  var floor = document.getElementById('floor');
+  var fallingDiv = document.getElementById('fallingDiv');
+  var gravity = 2; // Adjust the gravity strength
+  var jumpStrength = 80; // Adjust the jump strength
+  var jumpDuration = 400; // Adjust the jump duration in milliseconds
+  var gravityInterval; // Variable to store the interval ID
+
+  function applyGravity() {
+    var rectFloor = floor.getBoundingClientRect();
+    var rectFallingDiv = fallingDiv.getBoundingClientRect();
+
+    // Check if fallingDiv is above the floor
+    if (rectFallingDiv.bottom < rectFloor.bottom) {
+      // Apply gravity by moving fallingDiv down
+      fallingDiv.style.top = parseFloat(getComputedStyle(fallingDiv).top) + gravity + 'px';
+    } else {
+      // Stop falling when reaching the floor
+      clearInterval(gravityInterval);
+      // Restart the gravity interval after landing
+      restartGravityInterval();
+    }
+  }
+
+  function jump() {
+    var startTime = Date.now();
+    var initialTop = parseFloat(getComputedStyle(fallingDiv).top);
+
+    function jumpAnimation() {
+      var elapsed = Date.now() - startTime;
+      var progress = Math.min(elapsed / jumpDuration, 1);
+      var jumpHeight = jumpStrength * (1 - Math.pow(progress - 1, 2)); // Quadratic easing
+
+      fallingDiv.style.top = initialTop - jumpHeight + 'px';
+
+      if (progress < 1) {
+        requestAnimationFrame(jumpAnimation);
+      } else {
+        // Jump animation complete, restart the gravity interval
+        restartGravityInterval();
+      }
+    }
+
+    // Start the jump animation
+    jumpAnimation();
+  }
+
+  function restartGravityInterval() {
+    // Set up the initial gravity interval
+    gravityInterval = setInterval(applyGravity, 20);
+  }
+
+  // Set up the initial gravity interval
+  gravityInterval = setInterval(applyGravity, 20);
+
+  // Example: Stop the falling and jump when clicking on the fallingDiv
+  fallingDiv.addEventListener('click', function() {
+    clearInterval(gravityInterval);
+    jump();
+  });
+</script>
+
+</body>
+</html>

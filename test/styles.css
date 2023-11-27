@@ -1,0 +1,41 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    
+}
+body::-webkit-scrollbar {
+    display: none;
+    
+  
+}
+#allBody{
+    position: relative;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 4;
+}
+#screen {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-width: 1024px;
+    aspect-ratio: 1024/768;
+    overflow: hidden;
+    border: 5px solid red;
+    background-repeat: no-repeat;
+}
+#backg{
+    position: absolute;
+    z-index: 5;
+    width: 1920px;
+    height:2020px;
+    bottom: 0px;
+    left:0px
+    
+}
